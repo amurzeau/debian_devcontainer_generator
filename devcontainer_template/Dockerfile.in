@@ -1,0 +1,16 @@
+FROM debian:{{debian_image_tag}}
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	bash \
+	vim \
+	git \
+	gitk \
+	git-buildpackage \
+	ssh \
+	gdb \
+	less \
+	build-essential \
+	ninja-build
+
+RUN apt-get update && apt-get install -y --no-install-recommends{{apt_additional_args}} \
+	{{build_depends}}
