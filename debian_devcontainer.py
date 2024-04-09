@@ -68,10 +68,6 @@ def generate_devcontainer(package_location):
         dockerfile_content = fh.read()
 
         dockerfile_content = dockerfile_content.replace("{{debian_image_tag}}", package_distribution.replace("-backports", ""))
-
-        if "backports" in package_distribution:
-            dockerfile_content = dockerfile_content.replace("{{apt_additional_args}}", f" -t {package_distribution}")
-
         dockerfile_content = dockerfile_content.replace("{{build_depends}}", " \\\n\t".join(package_build_depends))
 
     with open(f"{package_location}/.devcontainer/Dockerfile", "w") as fh:

@@ -6,11 +6,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
 	gitk \
 	git-buildpackage \
+	pristine-tar \
 	ssh \
 	gdb \
 	less \
 	build-essential \
 	ninja-build
 
-RUN apt-get update && apt-get install -y --no-install-recommends{{apt_additional_args}} \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	{{build_depends}}
